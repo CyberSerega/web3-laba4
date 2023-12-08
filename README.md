@@ -17,13 +17,12 @@
 
 <h2>Решение задач</h2>
 <pre>
- ```js
 function task1() {
     let x = Number(prompt('Введите x: '));
     let res = x>0 ? Math.sin(x)*Math.sin(x) : 1-2*Math.sin(x*x);
     alert(res);
   }
-  
+  ``` 
   // Задача 2
   function task2() {
     let n = prompt("Введите значение n: ", "0880");
@@ -345,9 +344,8 @@ alert(`maxIndex = ${maxIndex+1}, minIndex = ${minIndex+1}`);
     // }while(i<30)
     alert(res);
   }
- ```
 </pre>
 <h2 align="center">Вывод</h2>
-<p align="justify">Таким образом, я закрепил навык работы с Node.js, лучше стал ориентироваться в нём, кроме того, поработал с библиотекой Express и Telegraf, создал первого телеграм-бота с помощью Node.js , все поставленные цели были выполнены. </p>
+<p align="justify">Таким образом, я закрепил навык работы с Node.js, лучше стал ориентироваться в нём, кроме того, поработал с библиотекой Express, все поставленные цели были выполнены. </p>
 
 
