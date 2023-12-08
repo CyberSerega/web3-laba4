@@ -1,6 +1,6 @@
 <h1 align="center" paddin> МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ «САХАЛИНСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</h1>
 
-<p align="center">Лабораторная работа №3 "Основы языка JavaScript" </p>
+<p align="center">Лабораторная работа №4 "Основы языка JavaScript" </p>
 
 <p align="right">Выполнил: Рогаль Сергей Александрович</p>
 <p align="right">Проверил: Соболев Е. И.</p>
@@ -17,255 +17,335 @@
 
 <h2>Решение задач</h2>
 <pre>
-```js
-// Задача 1
+ ```js
 function task1() {
-    alert( null || 2 || undefined );
+    let x = Number(prompt('Введите x: '));
+    let res = x>0 ? Math.sin(x)*Math.sin(x) : 1-2*Math.sin(x*x);
+    alert(res);
   }
   
   // Задача 2
   function task2() {
-    alert( alert(1) || 2 || alert(3) );
+    let n = prompt("Введите значение n: ", "0880");
+    const numStr = n.toString();
+    if (numStr.length !== 4) {
+        alert("Число n<=9999")
+    }
+    if (numStr === numStr.split('').reverse().join('')) {
+        alert("Число палидром")
+    }
+    else {
+        alert("Число не палидром")
+    }
   }
   
   // Задача 3
   function task3() {
-    alert( 1 && null && 2 );
+    let n = Number(prompt('Введите год: '));
+    let res = n<100 ? n%4 : n%400;
+    if (res==0) alert("Это год високосный");
+    else alert("Это год невисокосный");
   }
   
   // Задача 4
   function task4() {
-    alert( alert(1) && alert(2) );
+    let x = Number(prompt('Введите x: '));
+    let res = x<-1 ? -1 : (x==-1 ? 1 : x);
+    alert('Результат ' + res);
   }
   
   // Задача 5
   function task5() {
-    alert( null || 2 && 3 || 4 );
+    let n = Number(prompt('Введите номер месяца: '));
+    if (n<=2 | n==12) alert("Зима");
+    else if (n<6) alert("Весна");
+    else if (n<10) alert("Лето");
+    else alert("Осень");
   }
   
   // Задача 6
   function task6() {
-    let age = prompt('Введите возраст');
-    if ((age>=14) && (age<=90))
-    alert(`Переменная age=${age} находится в диапазоне от 14 до 90 включительно`);
+    let m = Number(prompt('Введите номер масти'));
+    let n = Number(prompt('Введите номер достоинства'));
+    let res = "";
+    switch(n){
+      case 6: res+="Шестерка";
+      break;
+      case 7: res+="Семерка";
+      break;
+      case 8: res+="Восьмерка";
+      break;
+      case 9: res+="Девятка";
+      break;
+      case 10: res+="Десятка";
+      break;
+      case 11: res+="Валет";
+      break;
+      case 12: res+="Дама";
+      break;
+      case 13: res+="Король";
+      break;
+      case 14: res+="Туз";
+      break;
+    }
+    res+=" ";
+    switch(m){
+      case 1: res+="пик";
+      break;
+      case 2: res+="треф";
+      break;
+      case 3: res+="бубен";
+      break;
+      case 4: res+="черви";
+      break;
+    }
+    alert(res);
   }
 
   
-  // Задача 7
+  // Задача 7 ?????
   function task7() {
-    let age = prompt('Введите возраст');
-    if (!(age>=14 && age<=90))
-    alert(`Переменная age=${age} не находится в диапазоне от 14 до 90 включительно`);
-    if (age<14 || age>90)
-    alert(`Переменная age=${age} не находится в диапазоне от 14 до 90 включительно`);
+  let n = prompt("Введите значение n: ", "1984")
+  const animals = ["Крыса", "Корова", "Тигр", "Заяц", "Дракон", "Змея", "Лошадь", "Овца", "Обезьяна", "Петух", "Собака", "Свинья"];
+  const colors = ["Зеленый", "Красный", "Желтый", "Белый", "Черный"];
+
+  const startYear = 1984; // Год, с которого начинается цикл
+  const animalIndex = (n - startYear) % 12;
+  const colorIndex = Math.floor((n - startYear) / 2) % 5;
+
+  const animalName = animals[animalIndex];
+  const colorName = colors[colorIndex];
+
+  alert(animalName + " " + colorName);
   }
   
   // Задача 8
   function task8() {
-    if (-1 || 0) alert( '-1 || 0 = true' )
-        else alert('-1 || 0 = false');
-    if (-1 && 0) alert( '-1 && 0 = true' )
-        else alert('-1 && 0 = false');
-    if (null || -1 && 1) alert( 'null || -1 && 1 = true' )
-        else alert('null || -1 && 1 = false');
+    let res = "";
+    for(let i=1; i<=10; i++){
+      res+=`9*${i}=${9*i}\n`;
+    }
+    alert(res);
   }
   
   // Задача 9
   function task9() {
-    let role = prompt('Кто там (Админ, другое)');    
-    if(role=='Админ')
-    {
-        let pswd = prompt('Введите пароль (Я Главный)');
-        if (pswd=='Я Главный'){
-          alert('Здравствуйте!');
-        } 
-        else if (pswd=='Отмена'){
-          alert('Отменено');
-        }
-        else alert('Неверный пароль');
+    let res = "";
+    for(let i=2; i<=20; i++){
+      res+=`sin(${i})=${Math.sin(i)}\n`;
     }
-    else if(role=='Отмена') alert("Отменено");
-    else  alert('Я вас не знаю');
+    alert(res);
   }
   
-  // Задача 10
+  // Задача 10 ????
   function task10() {
-    console.log("Задача 11");
-    let i = 3;
-    while (i>=0) {
-      alert( i-- );
-  }
+    
+    let result = "";
+    let a = parseInt(prompt("Введите число а: ", "100"));
+    let b = parseInt(prompt("Введите число b: ", "500"));
+    let sum = 0;
+    for (let i = 100; i <= 500; i++) {
+        sum += i;
+    }
+    result += "а)" + sum + "\n";
+    sum = 0
+
+    for (let i = a; i <= 500; i++) {
+        sum += i;
+    }
+    result += "б)" + sum + "\n";
+    sum = 0
+
+    for (let i = -10; i <= b; i++) {
+        sum += i;
+    }
+    result += "в)" + sum + "\n";
+    sum = 0
+
+    for (let i = a; i <= b; i++) {
+        sum += i;
+    }
+    result += "г)" + sum + "\n";
+    alert(result);
   }
   
   // Задача 11
   function task11() {
-       let i = 0;
-      while (++i < 5) alert( i );
-      i = 0;
-      while (i++ < 5) alert( i );
+    let res = 1;
+    let n = prompt('Введите n: ');
+    for(let i=2; i<=n; i++){
+      res+= 1/n;
+    }
+    alert("Сумма равна: " + res);
 
 }
   // Задача 12
   function task12() {
-    console.log("Задача 12");
-    for (let i = 0; i < 5; i++) alert( i );
-    for (let i = 0; i < 5; ++i) alert( i );
+    let x = Number(prompt('Введите x: '));
+    let y = Number(prompt('Введите y: '));
+    let res1 = x;
+    let res2 = y;
+    for (let i = 0; i < y-1; i++) res1+=x;
+    for (let i = 0; i < x-1; ++i) res2+=y;
+    alert("Результат1: " + res1);
+    alert("Результат2: " + res2);
   }
   
   // Задача 13
   function task13() {
-    console.log("Задача 13");
-    for (let i = 2; i <= 10; i+=2) alert( i );
+    let n = prompt('Введите n: ');
+    let res = 0;
+    for (let i = 1; i < 2*n; i++){
+      if (i%2==1) res+=i;
+    };
+    alert("Его квадрат: "+ res);
   }
   
   // Задача 14
   function task14() {
-    console.log("Задача 14");
-    let i=0;
-    while(i<3)
+    let n = 0;
+    for (let i = 50; i >= 1; i--)
     {
-      alert( `number ${i}!` );
-      i++;
+        n= Math.sqrt(i + n);
     }
+    alert(n);
   }
   
   // Задача 15
   function task15() {
-    console.log("Задача 15"); 
-    let num=0;    
-    do
-    {
-      num = prompt('Введите число >100');
-    }
-    while(num<=100 | num==null);
+    let seq = [1, 3, 5 ,6 ,8, 0];
+    let sum=0;
+    for(let i=0; i<seq.length; i++) sum+=seq[i];
+    alert("Сумма всех чисел последовательности " + sum);
+    alert("Количество чисел в последовательности " + (seq.length-1).toString());
   }
   
-
-  function isEasy(num){
-    let i=2;
-    while(i*i<=num)
-    {
-      if (num%i==0) return false;
-      i++;
-    }
-    return true;
-  }
   // Задача 16
   function task16() {
-    console.log("Задача 16");
-    let n=10;
-    let i=2;
-    while(i<=n)
-    {
-      if (isEasy(i)) alert(i);
-      i++;
-    }
+    let seq = [1, 3, 5 ,6 ,8, -1];
+    let sum=0;
+    for(let i=0; i<seq.length-1; i++) sum+=seq[i];
+    sum /= seq.length-1;
+    alert("Среднее арифметическое " + sum);
   }
   
   // Задача 17
   function task17() {
-    console.log("Задача 17");
-    let browser = 'Operda';
-    if (browser == 'Opera') alert("You've got the Edge!" );
-    else if (browser == 'Chrome' | browser == 'Firefox' |browser == 'Safari' | browser == 'Opera')
-    alert( 'Okay we support these browsers too' );
-    else alert( 'We hope that this page looks ok!' );
+    let n = prompt('Введите число n');
+    let count3 = 0, countLast = 0, countEven = 0,
+    sum5 = 0, mult7 = 1, count05 = 0;
+
+    for(let i = 0; i < n.length; i++){
+      if (n[i] == '3') count3++;
+      if (n[i] == n[n.length - 1]) countLast++;
+      if (Number(n[i]) % 2 == 0) countEven++;
+      if (Number(n[i]) > 5) sum5+= Number(n[i]);
+      if (Number(n[i]) > 7) mult7*= Number(n[i]);
+      if (n[i] == '0' || n[i] == '5') count05++;
   }
+    alert(`а) ${count3}
+     б) ${countLast}
+     в) ${countEven}
+     г) ${sum5}
+     д) ${mult7}
+     е) ${count05}`);
+}
   
   // Задача 18
   function task18() {
-    const number = +prompt('Введите число между 0 и 3', '');
-
-    switch(number){
-      case 0: 
-        alert('Вы ввели число 0');
-        break;
-      case 1: 
-      alert('Вы ввели число 1');
-      break;
-      case 2:
-      case 3:
-        {
-          alert('Вы ввели число 2, а может и 3');
-          break;
-        }   
-
-    }
-    }
+    let n = prompt('Введите число n');
+    let maxDigit = 0, maxIndex=0, minDigit=0, minIndex=0;
+    for(let i = 0; i < n.length; i++){
+      if(Number(n[i])>maxDigit){
+        maxDigit = Number(n[i]);
+        maxIndex = i;
+       }
+       if(Number(n[i]<minDigit)){
+         minDigit = Number(n[i]);
+         minIndex = i;
+       }
+  } 
+   for(let i = n.length-1; i >=0; i--){
+     if(Number(n[i])>maxDigit){
+       maxDigit = Number(n[i]);
+       maxIndex = i;
+     }
+     if(Number(n[i]<minDigit)){
+       minDigit = Number(n[i]);
+       minIndex = i;
+     }
+ } 
+alert(`maxIndex = ${maxIndex+1}, minIndex = ${minIndex+1}`);
+}
   
   // Задача 19
   function task19() {
-    function checkAge(age) {
-      if (age > 18) {
-        return true;
-      }
-      return confirm('Родители разрешили?');
+    let n = Number(prompt('Введите число n'));
+    let i=2;
+    while(i*i<=n){
+        if(n%i!=0){
+          alert('Число не простое');
+          return;
+        };
+        i++;
     }
-    checkAge(17);    
+    alert('Число простое');
   }
   
   // Задача 20
   function task20() {
-    function checkAge(age) {      
-      return age>18 ? true :  confirm('Родители разрешили?'); 
-      //  return (age>18 || confirm('Родители разрешили?')); 
+    let n = prompt('Введите число n');
+    for(let i=0; i<n.length-1; i++){
+      if(Number(n[i])>Number(n[i+1])){
+        alert('No');
+        return;
+      } 
     }
-    function checkAge1(age) {  
-      return (age>18 || confirm('Родители разрешили?')); 
-    }
-    checkAge(17);   
-    checkAge1(17); 
+    alert('Yes');
   }
   
   // Задача 21
   function task21() {
-    function min(a, b){
-      return a<b ? a : b;
+    const seq = [1, 2 ,3, 4 , 1001, 1004, 1005, 2004, 4005, 7000, 10000]
+    let n = Number(prompt('Введите число n'));
+    for(let i=0; i<seq.length-1; i++){
+      if(n<seq[i]){
+        alert('Порядковый номер: ' + (i+1));
+        return;
+      } 
     }
-    alert('min(2,5) '+ min(2,5));
-    alert('min(3,-1) '+ min(3, -1));
-    alert('min(1,1) '+ min(1, 1));
-
+    alert("Такого числа нет");
   }
   
   // Задача 22
   function task22() {
-    function pow(x,n){
-      if (n==0) return 1;
-      let res = x;
-      for(let i=0; i<n-1; i++) res*=x;
-      return res;
+    let n = prompt('Введите число n');
+    let a = prompt('Введите число a');
+    let b = prompt('Введите число b');
+    let countA = 0, countB=0;
+    for(let i=0; i<n.length-1; i++){
+      if(n[i]==a) countA++;
+      if(n[i]==b) countB++;
     }
-    let x = prompt('Введите x: ');
-    let n = prompt('Введите n: ');
-    alert(pow(x,n));
+    if(countA<countB) alert(`Да, цифра ${a} встречается реже, чем ${b}`);
+    else alert(`Нет, цифра ${a} не встречается реже, чем ${b}`);
   }
 
-  //telegram bot
-  {
-  import express from 'express'
-import { PORT, TOKEN } from './config.js'
-import { Telegraf } from 'telegraf';
-
-
-const app = express()
-const bot = new Telegraf(TOKEN)
-
-bot.start(ctx => {
-    ctx.reply('Welcome, bro')
-})
-
-bot.on('text', ctx => {
-    ctx.reply('just text')
-})
-
-bot.launch();
-
-app.listen(PORT, () => {
-  console.log(`Сервер запущен на порту ${PORT}`);
-});
-}
-```
+  function task23() {
+    let i=10;
+    let res = "";
+    while(i<=30){
+      res+=i.toString()+"\n";
+      i++;
+    } 
+    i=9;
+    // do{
+    //   i++;
+    //   res+=i.toString()+"\n";
+    // }while(i<30)
+    alert(res);
+  }
+ ```
 </pre>
 <h2 align="center">Вывод</h2>
 <p align="justify">Таким образом, я закрепил навык работы с Node.js, лучше стал ориентироваться в нём, кроме того, поработал с библиотекой Express и Telegraf, создал первого телеграм-бота с помощью Node.js , все поставленные цели были выполнены. </p>
